@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IZUM - ETA Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#064200",
+                        "primary-container": "#2ff801",
+                        "secondary-fixed-dim": "#00d7f0",
+                        "primary-dim": "#2be800",
+                        "on-tertiary-fixed": "#003f43",
+                        "tertiary-fixed": "#17eefa",
+                        "secondary-fixed": "#26e6ff",
+                        "on-surface-variant": "#acaab1",
+                        "on-error-container": "#ffd2c8",
+                        "primary": "#8eff71",
+                        "inverse-surface": "#fcf8ff",
+                        "on-secondary-fixed-variant": "#005964",
+                        "error-container": "#b92902",
+                        "surface-container-highest": "#25252d",
+                        "on-surface": "#f9f5fd",
+                        "secondary-dim": "#00d4ec",
+                        "tertiary-dim": "#00deea",
+                        "background": "#0e0e13",
+                        "on-secondary-fixed": "#003a42",
+                        "outline": "#76747b",
+                        "on-secondary": "#004d57",
+                        "tertiary-fixed-dim": "#00deea",
+                        "on-secondary-container": "#e8fbff",
+                        "surface-tint": "#8eff71",
+                        "outline-variant": "#48474d",
+                        "secondary-container": "#006875",
+                        "on-primary-container": "#0b5800",
+                        "primary-fixed": "#2ff801",
+                        "primary-fixed-dim": "#2be800",
+                        "on-tertiary-fixed-variant": "#005e63",
+                        "on-error": "#450900",
+                        "inverse-on-surface": "#55545b",
+                        "surface-container-low": "#131319",
+                        "tertiary-container": "#17eefa",
+                        "surface-container-lowest": "#000000",
+                        "on-background": "#f9f5fd",
+                        "surface-dim": "#0e0e13",
+                        "surface-bright": "#2c2b33",
+                        "surface": "#0e0e13",
+                        "surface-variant": "#25252d",
+                        "surface-container": "#19191f",
+                        "surface-container-high": "#1f1f26",
+                        "error-dim": "#d53d18",
+                        "tertiary": "#88f6ff",
+                        "on-primary": "#0d6100",
+                        "error": "#ff7351",
+                        "inverse-primary": "#106f00",
+                        "on-primary-fixed-variant": "#0d6200",
+                        "secondary": "#00e3fd",
+                        "on-tertiary": "#005d62",
+                        "on-tertiary-container": "#005458"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .glass-gradient {
+            background: linear-gradient(135deg, rgba(25, 25, 31, 0.8) 0%, rgba(14, 14, 19, 0.9) 100%);
+        }
+        .glow-pulse {
+            box-shadow: 0 0 15px rgba(142, 255, 113, 0.4);
+        }
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        .animate-pulse-slow {
+            animation: subtle-pulse 3s infinite ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-zinc-950/60 backdrop-blur-xl border-b border-white/10 shadow-[0px_0px_12px_rgba(57,255,20,0.08)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#39FF14]" data-icon="sensors">sensors</span>
+<h1 class="font-['Inter'] font-black tracking-tighter text-[#39FF14] text-xl">IZUM</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 hover:text-[#39FF14] transition-colors duration-300 cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="min-h-screen pt-24 pb-32 px-6 flex flex-col items-center justify-start relative overflow-hidden">
+<!-- Abstract Background Glows -->
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<!-- Lost State Banner (Simulated Slide Down Position) -->
+<div class="w-full max-w-md mb-8 transform transition-all duration-500 ease-out opacity-0 -translate-y-4 hover:opacity-100 hover:translate-y-0">
+<div class="bg-error-container/20 border border-error/30 backdrop-blur-lg px-4 py-3 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="signal_disconnected">signal_disconnected</span>
+<p class="text-error text-xs font-label uppercase tracking-widest">Signal Latency Detected. Updating...</p>
+</div>
+</div>
+<!-- Stop Header Section -->
+<div class="w-full max-w-md flex flex-col items-center text-center mb-12">
+<div class="mb-4 relative">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary scale-125" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="absolute -inset-2 bg-primary/5 blur-lg rounded-full animate-pulse-slow"></div>
+</div>
+<p class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-2">Current Destination</p>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">North Campus Transit Hub</h2>
+</div>
+<!-- ETA Central Module -->
+<section class="w-full max-w-md aspect-square rounded-[3rem] bg-surface-container-low border border-outline-variant/15 flex flex-col items-center justify-center relative overflow-hidden group">
+<!-- Data Grid Texture -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle, #8eff71 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="relative z-10 flex flex-col items-center">
+<span class="text-[8rem] font-black leading-none text-primary-fixed tracking-tighter drop-shadow-[0_0_30px_rgba(47,248,1,0.2)]">8</span>
+<span class="font-label text-2xl uppercase tracking-widest text-on-surface-variant -mt-4">Minutes</span>
+</div>
+<!-- Signal & Latency Footer -->
+<div class="absolute bottom-10 flex flex-col items-center gap-6 w-full px-12">
+<!-- Uncertainty Bar -->
+<div class="w-full space-y-2">
+<div class="flex justify-between text-[10px] font-label text-on-surface-variant uppercase tracking-tighter">
+<span>Range Probability</span>
+<span>± 1.4 min</span>
+</div>
+<div class="h-[2px] w-full bg-outline-variant/20 rounded-full relative">
+<div class="absolute top-0 left-1/3 right-1/4 h-full bg-primary glow-pulse rounded-full shadow-[0_0_8px_rgba(142,255,113,0.6)]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full">
+<!-- Signal Tier -->
+<div class="flex gap-1.5 items-end h-4">
+<div class="w-1 h-1 bg-primary rounded-full"></div>
+<div class="w-1 h-2 bg-primary rounded-full"></div>
+<div class="w-1 h-3 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-outline-variant/30 rounded-full"></div>
+<span class="ml-2 font-label text-[10px] text-on-surface-variant uppercase">UHF-4</span>
+</div>
+<!-- Last Ping -->
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Live Sync: 12:44:02</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Metadata Bento -->
+<div class="w-full max-w-md mt-6 grid grid-cols-2 gap-4">
+<div class="p-5 rounded-3xl bg-surface-container border border-outline-variant/10">
+<p class="font-label text-[9px] text-on-surface-variant uppercase mb-3">Vehicle ID</p>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="directions_bus">directions_bus</span>
+<span class="font-label text-sm font-bold text-on-surface">IZ-9920</span>
+</div>
+</div>
+<div class="p-5 rounded-3xl bg-surface-container border border-outline-variant/10">
+<p class="font-label text-[9px] text-on-surface-variant uppercase mb-3">Occupancy</p>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="group">group</span>
+<span class="font-label text-sm font-bold text-on-surface">42%</span>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="w-full max-w-md mt-10">
+<button class="w-full py-4 bg-primary text-on-primary-fixed font-bold rounded-full text-sm uppercase tracking-widest shadow-[0_8px_24px_rgba(142,255,113,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="notifications_active">notifications_active</span>
+                Notify on Arrival
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-zinc-950/60 backdrop-blur-2xl border-t-[0.5px] border-white/15 shadow-[0px_-24px_48px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="map">map</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#39FF14] bg-[#39FF14]/10 rounded-full px-5 py-1.5 transition-all scale-110 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="departure_board" style="font-variation-settings: 'FILL' 1;">departure_board</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold">Stops</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="analytics">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Status</span>
+</a>
+</nav>
+<!-- Overlay Background Texture -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.02]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDitzI868wOqa0ZOk7hpAL6r17q1ugulRIQhCsAvXcF_6B1fwT4xiWeOMhmlIbJ9xQNolIZCUWaLmYrKBfuXikXl32pctRhWCEukGnYPRd_Kn5bRcwva8KJcd2E9cpUi2GQYQ92E7RNlRaFQwhs7Kw5q81NrWhhQ8y9ClTqqFsnvwpphv6J-qWUExhgx4ZFt2j_0gqBVFscSEUnF1DSxBZsOyMBFwr1d3lke3EM9peAFhOpiQp9CHuSMd8LzEMSnxwiHx2lSePpqs_3');">
+</div>
+</body></html>

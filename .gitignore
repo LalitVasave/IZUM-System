@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+*.egg-info/
+
+# ML model artifacts
+ml-service/model.pkl
+ml-service/*.pkl
+
+# Secrets / Keys
+backend/secrets/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Extracted/duplicate original HTML files (already converted to React)
+stitch_izum_campus_mobility_platform_extracted/
+stitch_izum_campus_mobility_platform (1)/
+
+# Local Git Scripts
+git_commit.bat
+final_push.bat
+force_push.bat
+*.txt

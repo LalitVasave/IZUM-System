@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#064200",
+                    "primary-container": "#2ff801",
+                    "secondary-fixed-dim": "#00d7f0",
+                    "primary-dim": "#2be800",
+                    "on-tertiary-fixed": "#003f43",
+                    "tertiary-fixed": "#17eefa",
+                    "secondary-fixed": "#26e6ff",
+                    "on-surface-variant": "#acaab1",
+                    "on-error-container": "#ffd2c8",
+                    "primary": "#8eff71",
+                    "inverse-surface": "#fcf8ff",
+                    "on-secondary-fixed-variant": "#005964",
+                    "error-container": "#b92902",
+                    "surface-container-highest": "#25252d",
+                    "on-surface": "#f9f5fd",
+                    "secondary-dim": "#00d4ec",
+                    "tertiary-dim": "#00deea",
+                    "background": "#0e0e13",
+                    "on-secondary-fixed": "#003a42",
+                    "outline": "#76747b",
+                    "on-secondary": "#004d57",
+                    "tertiary-fixed-dim": "#00deea",
+                    "on-secondary-container": "#e8fbff",
+                    "surface-tint": "#8eff71",
+                    "outline-variant": "#48474d",
+                    "secondary-container": "#006875",
+                    "on-primary-container": "#0b5800",
+                    "primary-fixed": "#2ff801",
+                    "primary-fixed-dim": "#2be800",
+                    "on-tertiary-fixed-variant": "#005e63",
+                    "on-error": "#450900",
+                    "inverse-on-surface": "#55545b",
+                    "surface-container-low": "#131319",
+                    "tertiary-container": "#17eefa",
+                    "surface-container-lowest": "#000000",
+                    "on-background": "#f9f5fd",
+                    "surface-dim": "#0e0e13",
+                    "surface-bright": "#2c2b33",
+                    "surface": "#0e0e13",
+                    "surface-variant": "#25252d",
+                    "surface-container": "#19191f",
+                    "surface-container-high": "#1f1f26",
+                    "error-dim": "#d53d18",
+                    "tertiary": "#88f6ff",
+                    "on-primary": "#0d6100",
+                    "error": "#ff7351",
+                    "inverse-primary": "#106f00",
+                    "on-primary-fixed-variant": "#0d6200",
+                    "secondary": "#00e3fd",
+                    "on-tertiary": "#005d62",
+                    "on-tertiary-container": "#005458"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(25, 25, 31, 0.6);
+            backdrop-filter: blur(20px);
+            border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+            border-left: 0.5px solid rgba(255, 255, 255, 0.15);
+        }
+        .data-flow-line {
+            stroke-dasharray: 10;
+            animation: flow 20s linear infinite;
+        }
+        @keyframes flow {
+            from { stroke-dashoffset: 1000; }
+            to { stroke-dashoffset: 0; }
+        }
+        .pulse-node {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 2px rgba(142, 255, 113, 0.2)); }
+            50% { filter: drop-shadow(0 0 12px rgba(142, 255, 113, 0.6)); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-zinc-950/60 backdrop-blur-xl border-b border-white/10 shadow-[0px_0px_12px_rgba(57,255,20,0.08)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#39FF14]" data-icon="sensors">sensors</span>
+<span class="font-['Inter'] font-black tracking-tighter text-[#39FF14] text-xl">IZUM</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['Inter'] font-bold tracking-tight text-lg text-[#39FF14] hover:text-[#39FF14] transition-colors duration-300" href="#">Architecture</a>
+<a class="font-['Inter'] font-bold tracking-tight text-lg text-zinc-400 hover:text-[#39FF14] transition-colors duration-300" href="#">Fleet</a>
+<a class="font-['Inter'] font-bold tracking-tight text-lg text-zinc-400 hover:text-[#39FF14] transition-colors duration-300" href="#">Analytics</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 hover:text-[#39FF14] cursor-pointer transition-colors" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Title -->
+<div class="mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="max-w-2xl">
+<span class="font-label text-xs uppercase tracking-[0.3em] text-primary mb-4 block">System Infrastructure</span>
+<h1 class="text-5xl md:text-7xl font-headline font-black tracking-tighter leading-none">
+                    KINETIC <br/> <span class="text-outline">OBSERVATORY</span>
+</h1>
+</div>
+<div class="font-label text-sm text-on-surface-variant flex gap-6 items-center">
+<div class="flex flex-col">
+<span class="text-primary">LATENCY</span>
+<span>14.2ms avg</span>
+</div>
+<div class="flex flex-col">
+<span class="text-primary">NODES</span>
+<span>Active [08]</span>
+</div>
+</div>
+</div>
+<!-- System Flow Diagram (Bento Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Central Diagram Canvas -->
+<div class="md:col-span-8 glass-panel rounded-xl p-8 min-h-[500px] relative overflow-hidden group">
+<div class="absolute top-6 left-6 font-label text-xs text-on-surface-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    LIVE_DATA_STREAM
+                </div>
+<!-- SVG Connectivity Layer -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 800 500">
+<defs>
+<lineargradient id="lineGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" style="stop-color:theme('colors.primary');stop-opacity:0"></stop>
+<stop offset="50%" style="stop-color:theme('colors.primary');stop-opacity:0.3"></stop>
+<stop offset="100%" style="stop-color:theme('colors.primary');stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+<g class="data-flow-line" fill="none" stroke="url(#lineGrad)" stroke-width="1.5">
+<path d="M150 250 Q 250 250, 400 150"></path>
+<path d="M150 250 Q 250 250, 400 350"></path>
+<path d="M400 150 L 650 250"></path>
+<path d="M400 350 L 650 250"></path>
+<path d="M400 150 L 400 350"></path>
+</g>
+</svg>
+<!-- Interactive Nodes -->
+<div class="relative h-full w-full flex items-center justify-between px-12">
+<!-- GPS Node -->
+<div class="relative z-10">
+<div class="w-20 h-20 bg-surface-container rounded-lg border border-white/5 flex flex-col items-center justify-center cursor-help group/node hover:border-primary transition-all duration-500 pulse-node">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="location_on">location_on</span>
+<span class="font-label text-[10px] mt-1 text-on-surface-variant">GPS</span>
+<!-- Tooltip -->
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover/node:opacity-100 transition-all bg-surface-container-highest px-3 py-1 rounded text-[10px] whitespace-nowrap border border-primary/20 pointer-events-none">
+                                RAW COORDINATE INGEST
+                            </div>
+</div>
+</div>
+<!-- Middle Column -->
+<div class="flex flex-col gap-24">
+<!-- FastAPI Node -->
+<div class="relative z-10">
+<div class="w-24 h-24 bg-surface-container rounded-lg border border-white/5 flex flex-col items-center justify-center cursor-help group/node hover:border-secondary transition-all duration-500">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="api">api</span>
+<span class="font-label text-[10px] mt-1 text-on-surface-variant">FASTAPI</span>
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover/node:opacity-100 transition-all bg-surface-container-highest px-3 py-1 rounded text-[10px] whitespace-nowrap border border-secondary/20 pointer-events-none">
+                                    ASYNC GATEWAY
+                                </div>
+</div>
+</div>
+<!-- ML Node -->
+<div class="relative z-10">
+<div class="w-24 h-24 bg-surface-container rounded-lg border border-white/5 flex flex-col items-center justify-center cursor-help group/node hover:border-tertiary transition-all duration-500">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="psychology">psychology</span>
+<span class="font-label text-[10px] mt-1 text-on-surface-variant">ML CORE</span>
+<div class="absolute -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover/node:opacity-100 transition-all bg-surface-container-highest px-3 py-1 rounded text-[10px] whitespace-nowrap border border-tertiary/20 pointer-events-none">
+                                    TRAJECTORY PREDICTION
+                                </div>
+</div>
+</div>
+</div>
+<!-- Leaflet Node -->
+<div class="relative z-10">
+<div class="w-20 h-20 bg-surface-container rounded-lg border border-white/5 flex flex-col items-center justify-center cursor-help group/node hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="map">map</span>
+<span class="font-label text-[10px] mt-1 text-on-surface-variant">RENDER</span>
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover/node:opacity-100 transition-all bg-surface-container-highest px-3 py-1 rounded text-[10px] whitespace-nowrap border border-primary/20 pointer-events-none">
+                                LEAFLET OSM V5
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tech Stack / Docker Section -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<div class="glass-panel rounded-xl p-6 flex-1 flex flex-col gap-4">
+<h3 class="font-label text-xs text-primary uppercase tracking-widest">Docker Stack Build</h3>
+<div class="space-y-4">
+<!-- Progress Items -->
+<div class="bg-surface-container-low p-3 rounded border-l-2 border-primary">
+<div class="flex justify-between text-[10px] font-label mb-2">
+<span>IMAGE: IZUM-GATEWAY</span>
+<span class="text-primary">COMPILED</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded border-l-2 border-secondary">
+<div class="flex justify-between text-[10px] font-label mb-2">
+<span>IMAGE: IZUM-REDIS-CACH</span>
+<span class="text-secondary">SYNCING</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-2/3"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded border-l-2 border-tertiary">
+<div class="flex justify-between text-[10px] font-label mb-2">
+<span>IMAGE: IZUM-ML-TENSOR</span>
+<span class="text-tertiary">QUEUED</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-1/4"></div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5">
+<div class="font-label text-[10px] text-zinc-500 mb-2">BUILD_VERSION</div>
+<div class="font-label text-xl text-on-surface">v11.4.0-stable</div>
+</div>
+</div>
+<!-- Mini Log Stream -->
+<div class="bg-surface-container-lowest p-4 rounded-xl font-label text-[10px] text-primary/60 border border-primary/5 h-32 overflow-hidden flex flex-col gap-1">
+<div>[09:42:11] INITIALIZING WEBSOCKET CLUSTER...</div>
+<div>[09:42:12] GPS_STREAM_01: HANDSHAKE SUCCESS</div>
+<div>[09:42:12] REDIS_MASTER: PONG</div>
+<div>[09:42:13] ML_INSTANCE: RECOVERY_SUCCESS</div>
+<div class="animate-pulse">[09:42:14] SYSTEM_READY: LISTENING ON PORT 8080</div>
+</div>
+</div>
+</div>
+<!-- State Machine Section -->
+<section class="mt-20">
+<div class="flex items-center gap-4 mb-10">
+<h2 class="font-headline font-bold text-2xl tracking-tight">VEHICLE STATE ENGINE</h2>
+<div class="h-px flex-1 bg-white/10"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<!-- State: ACTIVE -->
+<div class="bg-surface-container-low p-6 rounded-xl border-b-4 border-primary group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="sensors_check">sensors</span>
+<span class="font-label text-[10px] text-primary">01</span>
+</div>
+<h4 class="font-label font-bold text-sm mb-2">ACTIVE</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Full telemetry lock, high-frequency updates.</p>
+</div>
+<!-- State: SPARSE -->
+<div class="bg-surface-container-low p-6 rounded-xl border-b-4 border-secondary group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="wifi_tethering_off">wifi_tethering_off</span>
+<span class="font-label text-[10px] text-secondary">02</span>
+</div>
+<h4 class="font-label font-bold text-sm mb-2">SPARSE</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Reduced polling rate to conserve energy.</p>
+</div>
+<!-- State: LOST -->
+<div class="bg-surface-container-low p-6 rounded-xl border-b-4 border-error group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-error" data-icon="signal_disconnected">signal_disconnected</span>
+<span class="font-label text-[10px] text-error">03</span>
+</div>
+<h4 class="font-label font-bold text-sm mb-2">LOST</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">No connection. Initiating dead reckoning.</p>
+</div>
+<!-- State: BUFFERING -->
+<div class="bg-surface-container-low p-6 rounded-xl border-b-4 border-zinc-500 group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-zinc-500" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="font-label text-[10px] text-zinc-500">04</span>
+</div>
+<h4 class="font-label font-bold text-sm mb-2">BUFFERING</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Storing data locally until handshake.</p>
+</div>
+<!-- State: SYNCING -->
+<div class="bg-surface-container-low p-6 rounded-xl border-b-4 border-tertiary group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-tertiary" data-icon="sync">sync</span>
+<span class="font-label text-[10px] text-tertiary">05</span>
+</div>
+<h4 class="font-label font-bold text-sm mb-2">SYNCING</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Uploading backlog. Prioritizing realtime.</p>
+</div>
+</div>
+<!-- Transitional Flow Diagram -->
+<div class="mt-12 p-8 glass-panel rounded-xl flex items-center justify-between overflow-x-auto gap-8">
+<div class="flex-shrink-0 flex items-center gap-4">
+<span class="font-label text-[10px] text-primary">TRANSITION_LOGIC</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<div class="flex-1 flex justify-center gap-12 items-center min-w-[600px]">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-label">IDLE</span>
+<div class="w-16 h-[2px] bg-gradient-to-r from-primary to-secondary relative">
+<div class="absolute -right-1 -top-1 w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-label">TIMEOUT_EXPIRED</span>
+<div class="w-24 h-[2px] bg-gradient-to-r from-secondary to-error relative">
+<div class="absolute -right-1 -top-1 w-2 h-2 rounded-full bg-error"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-label">PING_RECOVERY</span>
+<div class="w-20 h-[2px] bg-gradient-to-r from-error to-tertiary relative">
+<div class="absolute -right-1 -top-1 w-2 h-2 rounded-full bg-tertiary"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-label">FLUSH_BUFFER</span>
+<div class="w-16 h-[2px] bg-gradient-to-r from-tertiary to-primary relative">
+<div class="absolute -right-1 -top-1 w-2 h-2 rounded-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Engineering Blog Post Excerpt -->
+<section class="mt-24 grid grid-cols-1 md:grid-cols-2 gap-16">
+<div>
+<h3 class="font-headline font-black text-3xl mb-6 tracking-tight">ENGINEERING THE <br/>REAL-TIME FABRIC</h3>
+<div class="space-y-4 text-on-surface-variant leading-relaxed text-sm">
+<p>At the core of the IZUM Kinetic Observatory lies a resilient event-driven architecture. We've moved beyond standard REST polling to a robust WebSocket-first implementation that handles over 2.4 million coordinate points per hour with sub-20ms latency.</p>
+<p>By leveraging Redis as an ephemeral cache layer, the FastAPI gateways can broadcast telemetry updates to connected clients without impacting the primary ML training pipeline, which runs asynchronously in a dedicated Docker swarm.</p>
+</div>
+<button class="mt-8 flex items-center gap-3 text-primary font-label text-xs tracking-widest uppercase hover:gap-5 transition-all">
+                    Read Whitepaper 
+                    <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span>
+</button>
+</div>
+<div class="relative rounded-xl overflow-hidden aspect-video">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60" data-alt="Close up of a server rack with glowing green and blue LED lights in a dark data center environment, high tech atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8qqH5B_ciVffbJkRgNmYBmO0PuFjAy-x0u3jbr8Buji6iBYNY6EOH2szaSaY2Edrhnc0ecIMQt864jp7P5MzL74V42Zorxw0UXc57UYUtEUagVlG2SELCzT13SWhEERiVfVa4wTQ1wTys6f4S8VmIGMr4tdWOPn0eO7MIIbKQTIVULXJvNdSdM3E8-jC7yszgyDdcA3FU6E0atbKjVa1iZLGaizPxn0No1sROn9mvI1iZceT2mP34EBMxDLn5C9XsMr-CnDVmjuaD"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 font-label text-[10px] bg-primary/20 backdrop-blur-md px-2 py-1 rounded border border-primary/20">IZUM_CORE_V2_RACK_01</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-zinc-950/60 backdrop-blur-2xl rounded-t-3xl border-t-[0.5px] border-white/15 shadow-[0px_-24px_48px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="map">map</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#39FF14] bg-[#39FF14]/10 rounded-full px-5 py-1.5 scale-110 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="departure_board">departure_board</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Stops</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="analytics">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Status</span>
+</a>
+</footer>
+</body></html>

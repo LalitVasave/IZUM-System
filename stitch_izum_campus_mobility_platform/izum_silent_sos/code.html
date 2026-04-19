@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=Space_Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#064200",
+            "primary-container": "#2ff801",
+            "secondary-fixed-dim": "#00d7f0",
+            "primary-dim": "#2be800",
+            "on-tertiary-fixed": "#003f43",
+            "tertiary-fixed": "#17eefa",
+            "secondary-fixed": "#26e6ff",
+            "on-surface-variant": "#acaab1",
+            "on-error-container": "#ffd2c8",
+            "primary": "#8eff71",
+            "inverse-surface": "#fcf8ff",
+            "on-secondary-fixed-variant": "#005964",
+            "error-container": "#b92902",
+            "surface-container-highest": "#25252d",
+            "on-surface": "#f9f5fd",
+            "secondary-dim": "#00d4ec",
+            "tertiary-dim": "#00deea",
+            "background": "#0e0e13",
+            "on-secondary-fixed": "#003a42",
+            "outline": "#76747b",
+            "on-secondary": "#004d57",
+            "tertiary-fixed-dim": "#00deea",
+            "on-secondary-container": "#e8fbff",
+            "surface-tint": "#8eff71",
+            "outline-variant": "#48474d",
+            "secondary-container": "#006875",
+            "on-primary-container": "#0b5800",
+            "primary-fixed": "#2ff801",
+            "primary-fixed-dim": "#2be800",
+            "on-tertiary-fixed-variant": "#005e63",
+            "on-error": "#450900",
+            "inverse-on-surface": "#55545b",
+            "surface-container-low": "#131319",
+            "tertiary-container": "#17eefa",
+            "surface-container-lowest": "#000000",
+            "on-background": "#f9f5fd",
+            "surface-dim": "#0e0e13",
+            "surface-bright": "#2c2b33",
+            "surface": "#0e0e13",
+            "surface-variant": "#25252d",
+            "surface-container": "#19191f",
+            "surface-container-high": "#1f1f26",
+            "error-dim": "#d53d18",
+            "tertiary": "#88f6ff",
+            "on-primary": "#0d6100",
+            "error": "#ff7351",
+            "inverse-primary": "#106f00",
+            "on-primary-fixed-variant": "#0d6200",
+            "secondary": "#00e3fd",
+            "on-tertiary": "#005d62",
+            "on-tertiary-container": "#005458"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Space Grotesk"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .stealth-shield {
+      opacity: 0.04;
+      transition: opacity 0.3s ease;
+    }
+    .stealth-shield:active {
+      opacity: 0.15;
+    }
+    .progress-drain {
+      animation: drain 10s linear forwards;
+    }
+    @keyframes drain {
+      from { width: 100%; }
+      to { width: 0%; }
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-zinc-950/60 backdrop-blur-xl border-b border-white/10 shadow-[0px_0px_12px_rgba(57,255,20,0.08)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#39FF14]" data-icon="sensors">sensors</span>
+<h1 class="font-['Inter'] font-black tracking-tighter text-[#39FF14] text-xl">IZUM</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#39FF14] font-['Inter'] font-bold tracking-tight text-lg transition-colors duration-300" href="#">Map</a>
+<a class="text-zinc-400 font-['Inter'] font-bold tracking-tight text-lg hover:text-[#39FF14] transition-colors duration-300" href="#">Stops</a>
+<a class="text-zinc-400 font-['Inter'] font-bold tracking-tight text-lg hover:text-[#39FF14] transition-colors duration-300" href="#">Status</a>
+</nav>
+<span class="material-symbols-outlined text-[#39FF14] cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="relative h-screen w-full overflow-hidden bg-surface">
+<!-- Map Canvas (Background) -->
+<div class="absolute inset-0 z-0">
+<img alt="Dark Map Interface" class="w-full h-full object-cover opacity-60 grayscale-[0.5]" data-alt="a dark stylized digital map interface with glowing neon green paths and routes on a black satellite background high tech aesthetic" data-location="Tokyo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRJeDiz1L6SyVFMKTfkXcbHtNDeI27EqheSd3rzJ4fYRAqh_uDrWX9V2OYFUSt2RtIaiLeViB4zxjpS-dxxcCwdYA0i0Vng_SXGW1PwbrCm2_RxJFalBO5f4FMtfFxlDN73XyYlXiHXZnv0qRto_wFrrPKSJbH37Nwzr92U7XY_cLOIYgt3nfq6T1y55SoMY1TcFmcbF9D1ICt835_jomfacSjMFDCdtlSet6ZR_m09wilTzvrqf8iYrsdpIPZwNf5_UffLCF2jcW8"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background/80 pointer-events-none"></div>
+</div>
+<!-- Active SOS Overlay (Hidden by default in static HTML, represented as active state) -->
+<div class="absolute inset-0 z-40 flex flex-col items-center pointer-events-none">
+<!-- Cancel Progress Bar -->
+<div class="w-full h-1 bg-surface-container-lowest mt-[72px] relative overflow-hidden pointer-events-auto">
+<div class="h-full bg-primary/40 progress-drain"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant hover:text-on-surface transition-colors">
+            Tap to cancel
+          </button>
+</div>
+</div>
+<!-- Silent Toast -->
+<div class="mt-8 pointer-events-auto">
+<div class="bg-surface-container-high/80 backdrop-blur-2xl px-6 py-3 rounded-full flex items-center gap-3 border border-white/5 shadow-2xl">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Help is on the way</span>
+</div>
+</div>
+</div>
+<!-- Telemetry Data (Asymmetric Layout) -->
+<div class="absolute top-24 right-8 z-10 flex flex-col gap-1 items-end pointer-events-none">
+<div class="bg-surface-container-low/40 backdrop-blur-md p-4 rounded-xl border-l border-primary/20">
+<p class="font-label text-[10px] uppercase text-primary tracking-tighter opacity-70">Coordinates</p>
+<p class="font-label text-lg font-bold tracking-widest text-on-surface">35.6895° N, 139.6917° E</p>
+<div class="mt-4 space-y-2">
+<div class="flex justify-between items-center gap-8">
+<span class="font-label text-[9px] uppercase text-on-surface-variant">Signal Strength</span>
+<span class="font-label text-[9px] text-primary">98%</span>
+</div>
+<div class="w-24 h-[1px] bg-outline-variant/30 relative">
+<div class="absolute top-0 left-0 h-full w-[98%] bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Status Badge (Floating) -->
+<div class="absolute top-24 left-8 z-10 pointer-events-none">
+<div class="flex items-center gap-4 bg-surface-container/60 backdrop-blur-xl px-4 py-2 rounded-lg border border-white/5">
+<div class="relative w-2 h-2">
+<div class="absolute inset-0 bg-primary rounded-full animate-ping opacity-75"></div>
+<div class="relative w-2 h-2 bg-primary rounded-full"></div>
+</div>
+<span class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface">System Live</span>
+</div>
+</div>
+<!-- Hidden SOS Trigger (The Stealth Shield) -->
+<button class="absolute bottom-32 right-8 z-30 w-16 h-16 flex items-center justify-center stealth-shield rounded-full hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl" data-icon="shield">shield</span>
+</button>
+<!-- Map Interactions Floating Panel -->
+<div class="absolute left-8 bottom-32 z-10 space-y-4">
+<div class="flex flex-col gap-2">
+<button class="w-12 h-12 bg-surface-container-high/90 backdrop-blur-md rounded-full flex items-center justify-center border border-white/10 hover:border-primary/40 transition-all text-on-surface">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="w-12 h-12 bg-surface-container-high/90 backdrop-blur-md rounded-full flex items-center justify-center border border-white/10 hover:border-primary/40 transition-all text-on-surface">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+</div>
+<button class="w-12 h-12 bg-primary/10 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/30 text-primary">
+<span class="material-symbols-outlined" data-icon="my_location" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-zinc-950/60 backdrop-blur-2xl border-t-[0.5px] border-white/15 shadow-[0px_-24px_48px_rgba(0,0,0,0.4)]">
+<!-- Active Destination: Map -->
+<a class="flex flex-col items-center justify-center text-[#39FF14] bg-[#39FF14]/10 rounded-full px-5 py-1.5 transition-all duration-200 ease-out active:scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all active:scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="departure_board">departure_board</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Stops</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all active:scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Status</span>
+</a>
+</footer>
+<!-- 100ms Flash Layer (Hidden initially) -->
+<div class="fixed inset-0 z-[100] bg-black opacity-0 pointer-events-none transition-opacity duration-75"></div>
+</body></html>

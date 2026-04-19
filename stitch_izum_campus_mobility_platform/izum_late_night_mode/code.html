@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IZUM — Late Night Mode</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=Space_Grotesk:wght@300;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      background: rgba(25, 25, 31, 0.6);
+      backdrop-filter: blur(20px);
+      border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+      border-left: 0.5px solid rgba(255, 255, 255, 0.15);
+    }
+    .status-pulse {
+      box-shadow: 0 0 0 0 rgba(255, 115, 81, 0.7);
+      animation: pulse-red 2s infinite;
+    }
+    @keyframes pulse-red {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 115, 81, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 115, 81, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 115, 81, 0); }
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#064200",
+            "primary-container": "#2ff801",
+            "secondary-fixed-dim": "#00d7f0",
+            "primary-dim": "#2be800",
+            "on-tertiary-fixed": "#003f43",
+            "tertiary-fixed": "#17eefa",
+            "secondary-fixed": "#26e6ff",
+            "on-surface-variant": "#acaab1",
+            "on-error-container": "#ffd2c8",
+            "primary": "#8eff71",
+            "inverse-surface": "#fcf8ff",
+            "on-secondary-fixed-variant": "#005964",
+            "error-container": "#b92902",
+            "surface-container-highest": "#25252d",
+            "on-surface": "#f9f5fd",
+            "secondary-dim": "#00d4ec",
+            "tertiary-dim": "#00deea",
+            "background": "#0e0e13",
+            "on-secondary-fixed": "#003a42",
+            "outline": "#76747b",
+            "on-secondary": "#004d57",
+            "tertiary-fixed-dim": "#00deea",
+            "on-secondary-container": "#e8fbff",
+            "surface-tint": "#8eff71",
+            "outline-variant": "#48474d",
+            "secondary-container": "#006875",
+            "on-primary-container": "#0b5800",
+            "primary-fixed": "#2ff801",
+            "primary-fixed-dim": "#2be800",
+            "on-tertiary-fixed-variant": "#005e63",
+            "on-error": "#450900",
+            "inverse-on-surface": "#55545b",
+            "surface-container-low": "#131319",
+            "tertiary-container": "#17eefa",
+            "surface-container-lowest": "#000000",
+            "on-background": "#f9f5fd",
+            "surface-dim": "#0e0e13",
+            "surface-bright": "#2c2b33",
+            "surface": "#0e0e13",
+            "surface-variant": "#25252d",
+            "surface-container": "#19191f",
+            "surface-container-high": "#1f1f26",
+            "error-dim": "#d53d18",
+            "tertiary": "#88f6ff",
+            "on-primary": "#0d6100",
+            "error": "#ff7351",
+            "inverse-primary": "#106f00",
+            "on-primary-fixed-variant": "#0d6200",
+            "secondary": "#00e3fd",
+            "on-tertiary": "#005d62",
+            "on-tertiary-container": "#005458"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Space Grotesk"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary-fixed min-h-screen overflow-x-hidden">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-zinc-950/60 backdrop-blur-xl border-b border-white/10 shadow-[0px_0px_12px_rgba(57,255,20,0.08)]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#39FF14]">sensors</span>
+<span class="font-['Inter'] font-black tracking-tighter text-[#39FF14] text-xl">IZUM</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 hover:text-[#39FF14] transition-colors duration-300 cursor-pointer">account_circle</span>
+</div>
+</nav>
+<main class="pt-20 pb-32 px-4 max-w-lg mx-auto space-y-6">
+<!-- Late Night Mode Banner -->
+<header class="relative overflow-hidden glass-panel rounded-xl p-4 flex items-center justify-between border-l-4 border-secondary shadow-[0px_0px_30px_rgba(0,227,253,0.1)]">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+</div>
+<div>
+<h1 class="font-headline font-bold text-on-surface leading-tight">Late Night Mode</h1>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Enhanced Surveillance Active</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-secondary/20 rounded-full">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></div>
+<span class="font-label text-[10px] font-bold text-secondary">ACTIVE</span>
+</div>
+</header>
+<!-- Missed Check-in Alert Card (Conditional Visual) -->
+<section class="glass-panel rounded-xl p-5 border-l-4 border-error shadow-[0px_0px_40px_rgba(255,115,81,0.15)] relative overflow-hidden group">
+<div class="flex items-start gap-4">
+<div class="p-3 bg-error/20 rounded-full status-pulse">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1">
+<h2 class="font-headline font-extrabold text-on-surface text-lg">Driver check-in overdue</h2>
+<p class="text-on-surface-variant text-sm mt-1">Vehicle ID: <span class="font-label text-error">IZM-992-K</span> has missed the scheduled window.</p>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 py-2 rounded-full bg-error text-on-error font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-opacity">Contact Driver</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface font-bold text-xs uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Dismiss</button>
+</div>
+</section>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Check-in Countdown Ring Card -->
+<div class="col-span-1 glass-panel rounded-xl p-5 flex flex-col items-center justify-between text-center relative">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<!-- Background Circle -->
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-error" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="50" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<div class="flex flex-col items-center">
+<span class="font-label text-xl font-bold text-error">04:00</span>
+<span class="font-label text-[8px] uppercase tracking-tighter text-on-surface-variant">Remain</span>
+</div>
+</div>
+<div class="mt-4">
+<p class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest">Last check-in</p>
+<p class="font-headline font-bold text-sm">6 min ago</p>
+</div>
+</div>
+<!-- Route Deviation Map Mini -->
+<div class="col-span-1 glass-panel rounded-xl overflow-hidden flex flex-col">
+<div class="h-28 relative">
+<img alt="Dark map of urban streets" class="w-full h-full object-cover grayscale opacity-60" data-alt="Dark aesthetic satellite map of city grid at night with glowing blue and red neon path highlights showing deviation" data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9h9yS0WRZhbLiGc36sl39vGbbzBRSxQrKSx09zBNUxy7TplGVmS21tGEKIGMegJrFmw8ATbTTABgZH1nk_8lO8FtE7IElsjgawsD-qY2GVzzF5LPqX-8-rlK2qaJN4R8UkEaROoNMG_Yxu0n3ahljIt3yO1PiKIJn_xaCofWnLOqtkiqrnpq6obgQuUKYob4hFOO2bMD3H-lqJoz92AoZ5ucxbT0S30z_OwQ8UxTuCHqOxv-xgBR4EdS5bgwDrU53JJ-Xlx6WKU7k"/>
+<!-- Custom SVG Overlay for Paths -->
+<svg class="absolute inset-0 w-full h-full" viewbox="0 0 100 100">
+<!-- Expected Route (Blue) -->
+<path d="M 20 80 Q 50 50 80 20" fill="none" stroke="#00e3fd" stroke-dasharray="4 2" stroke-width="2"></path>
+<!-- Actual Route (Red) -->
+<path class="drop-shadow-[0_0_8px_#ff7351]" d="M 20 80 Q 60 70 90 60" fill="none" stroke="#ff7351" stroke-width="2"></path>
+</svg>
+<div class="absolute top-2 right-2 px-2 py-1 bg-error/90 backdrop-blur rounded-sm shadow-xl">
+<span class="font-label text-[9px] font-bold text-on-error">850m DEVIATION</span>
+</div>
+</div>
+<div class="p-3">
+<p class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest">Deviation Status</p>
+<p class="font-headline font-bold text-error text-xs">OFF-ROUTE DETECTED</p>
+</div>
+</div>
+</div>
+<!-- Data Telemetry Section -->
+<div class="glass-panel rounded-xl p-5 space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Night Telemetry v4.2</span>
+<span class="material-symbols-outlined text-secondary text-sm">signal_cellular_alt</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-base">speed</span>
+<span class="text-xs text-on-surface">Vehicle Speed</span>
+</div>
+<span class="font-label font-bold text-sm text-primary">42.4 <span class="text-[10px] opacity-60">KM/H</span></span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-base">battery_charging_80</span>
+<span class="text-xs text-on-surface">Battery Status</span>
+</div>
+<span class="font-label font-bold text-sm text-primary">82 <span class="text-[10px] opacity-60">%</span></span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-base">visibility</span>
+<span class="text-xs text-on-surface">Driver Vigilance</span>
+</div>
+<span class="font-label font-bold text-sm text-secondary">OPTIMAL</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-zinc-950/60 backdrop-blur-2xl rounded-t-3xl border-t-[0.5px] border-white/15 shadow-[0px_-24px_48px_rgba(0,0,0,0.4)]">
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all cursor-pointer">
+<span class="material-symbols-outlined">map</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all cursor-pointer">
+<span class="material-symbols-outlined">departure_board</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Stops</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#39FF14] bg-[#39FF14]/10 rounded-full px-5 py-1.5 transition-all scale-110 duration-200 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Status</span>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#064200",
+            "primary-container": "#2ff801",
+            "secondary-fixed-dim": "#00d7f0",
+            "primary-dim": "#2be800",
+            "on-tertiary-fixed": "#003f43",
+            "tertiary-fixed": "#17eefa",
+            "secondary-fixed": "#26e6ff",
+            "on-surface-variant": "#acaab1",
+            "on-error-container": "#ffd2c8",
+            "primary": "#8eff71",
+            "inverse-surface": "#fcf8ff",
+            "on-secondary-fixed-variant": "#005964",
+            "error-container": "#b92902",
+            "surface-container-highest": "#25252d",
+            "on-surface": "#f9f5fd",
+            "secondary-dim": "#00d4ec",
+            "tertiary-dim": "#00deea",
+            "background": "#0e0e13",
+            "on-secondary-fixed": "#003a42",
+            "outline": "#76747b",
+            "on-secondary": "#004d57",
+            "tertiary-fixed-dim": "#00deea",
+            "on-secondary-container": "#e8fbff",
+            "surface-tint": "#8eff71",
+            "outline-variant": "#48474d",
+            "secondary-container": "#006875",
+            "on-primary-container": "#0b5800",
+            "primary-fixed": "#2ff801",
+            "primary-fixed-dim": "#2be800",
+            "on-tertiary-fixed-variant": "#005e63",
+            "on-error": "#450900",
+            "inverse-on-surface": "#55545b",
+            "surface-container-low": "#131319",
+            "tertiary-container": "#17eefa",
+            "surface-container-lowest": "#000000",
+            "on-background": "#f9f5fd",
+            "surface-dim": "#0e0e13",
+            "surface-bright": "#2c2b33",
+            "surface": "#0e0e13",
+            "surface-variant": "#25252d",
+            "surface-container": "#19191f",
+            "surface-container-high": "#1f1f26",
+            "error-dim": "#d53d18",
+            "tertiary": "#88f6ff",
+            "on-primary": "#0d6100",
+            "error": "#ff7351",
+            "inverse-primary": "#106f00",
+            "on-primary-fixed-variant": "#0d6200",
+            "secondary": "#00e3fd",
+            "on-tertiary": "#005d62",
+            "on-tertiary-container": "#005458"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Space Grotesk"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .ghost-border-top {
+      border-top: 0.5px solid rgba(142, 255, 113, 0.15);
+    }
+    .ghost-border-left {
+      border-left: 0.5px solid rgba(142, 255, 113, 0.15);
+    }
+    .pulse-glow {
+      box-shadow: 0 0 0 0 rgba(142, 255, 113, 0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(142, 255, 113, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(142, 255, 113, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(142, 255, 113, 0); }
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen pb-32">
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-zinc-950/60 backdrop-blur-xl border-b border-white/10 shadow-[0px_0px_12px_rgba(57,255,20,0.08)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#39FF14]" data-icon="sensors">sensors</span>
+<h1 class="font-['Inter'] font-black tracking-tighter text-[#39FF14] text-xl">IZUM</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 hover:text-[#39FF14] transition-colors duration-300 cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Search Bar Section -->
+<div class="mb-10 animate-in fade-in slide-in-from-top-4 duration-700">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant focus:ring-0 focus:outline-none transition-all duration-300" placeholder="Search campus stops..." type="text"/>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary group-focus-within:w-[90%] transition-all duration-500 rounded-full shadow-[0_0_8px_#8eff71]"></div>
+</div>
+</div>
+<!-- Stops List -->
+<div class="space-y-4">
+<!-- Active/Expanded Card -->
+<div class="bg-surface-container-high rounded-xl overflow-hidden ghost-border-top ghost-border-left shadow-[0px_24px_48px_rgba(0,0,0,0.4)] border border-primary/20 transition-all duration-500">
+<div class="p-5 flex items-start justify-between">
+<div class="flex gap-4">
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="2.5"></circle>
+<circle class="text-primary" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="30" stroke-width="2.5"></circle>
+</svg>
+<span class="material-symbols-outlined text-primary" data-icon="directions_bus">directions_bus</span>
+</div>
+<div>
+<h3 class="text-lg font-bold tracking-tight text-on-surface">Main Library Commons</h3>
+<p class="font-label text-xs uppercase tracking-widest text-primary mt-0.5">Arrives in 7–10 min</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="flex items-center gap-2 bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+<div class="w-1.5 h-1.5 bg-primary rounded-full pulse-glow"></div>
+<span class="font-label text-[10px] font-bold text-primary tracking-tighter uppercase">Wait</span>
+</div>
+</div>
+</div>
+<!-- Expanded Content -->
+<div class="px-5 pb-6 border-t border-white/5 pt-5 space-y-6">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="directions_walk">directions_walk</span>
+<span class="font-label text-xs">4 min walk from here</span>
+</div>
+<div class="font-label text-xs text-secondary">Route 42A • Tech District</div>
+</div>
+<!-- Step Progress -->
+<div class="relative flex justify-between">
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-surface-container-highest -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-0 w-2/3 h-[1px] bg-primary -translate-y-1/2"></div>
+<div class="relative z-10 w-2 h-2 rounded-full bg-primary ring-4 ring-background"></div>
+<div class="relative z-10 w-2 h-2 rounded-full bg-primary ring-4 ring-background"></div>
+<div class="relative z-10 w-2 h-2 rounded-full bg-primary ring-4 ring-background"></div>
+<div class="relative z-10 w-2 h-2 rounded-full bg-surface-container-highest ring-4 ring-background"></div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary font-bold rounded-full text-sm shadow-[0_0_15px_rgba(142,255,113,0.3)] hover:scale-[1.02] active:scale-95 transition-transform">
+            Set Proximity Alert
+          </button>
+</div>
+</div>
+<!-- Regular Card 1 -->
+<div class="bg-surface-container rounded-xl p-5 flex items-start justify-between hover:bg-surface-container-high transition-all duration-300 cursor-pointer group">
+<div class="flex gap-4">
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="2.5"></circle>
+<circle class="text-secondary" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="90" stroke-width="2.5"></circle>
+</svg>
+<span class="material-symbols-outlined text-secondary" data-icon="directions_bus">directions_bus</span>
+</div>
+<div>
+<h3 class="text-lg font-bold tracking-tight text-on-surface">Engineering Quad</h3>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-0.5">Arrives in 12–15 min</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-label text-[10px] text-on-surface-variant group-hover:text-primary transition-colors">STP-042</span>
+</div>
+</div>
+<!-- Regular Card 2 -->
+<div class="bg-surface-container rounded-xl p-5 flex items-start justify-between hover:bg-surface-container-high transition-all duration-300 cursor-pointer group">
+<div class="flex gap-4">
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="2.5"></circle>
+<circle class="text-primary" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-dasharray="125.6" stroke-dashoffset="15" stroke-width="2.5"></circle>
+</svg>
+<span class="material-symbols-outlined text-primary" data-icon="directions_bus">directions_bus</span>
+</div>
+<div>
+<h3 class="text-lg font-bold tracking-tight text-on-surface">North Campus Housing</h3>
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-0.5">Arrives in 2–4 min</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-label text-[10px] text-on-surface-variant group-hover:text-primary transition-colors">STP-109</span>
+</div>
+</div>
+<!-- Regular Card 3 -->
+<div class="bg-surface-container rounded-xl p-5 flex items-start justify-between hover:bg-surface-container-high transition-all duration-300 cursor-pointer group">
+<div class="flex gap-4">
+<div class="relative w-12 h-12 flex items-center justify-center opacity-50">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="2.5"></circle>
+</svg>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="schedule">schedule</span>
+</div>
+<div>
+<h3 class="text-lg font-bold tracking-tight text-on-surface-variant">South Athletic Field</h3>
+<p class="font-label text-xs uppercase tracking-widest text-error mt-0.5">Service Suspended</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-label text-[10px] text-on-surface-variant">STP-002</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Shared Component: BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-zinc-950/60 backdrop-blur-2xl rounded-t-3xl border-t-[0.5px] border-white/15 shadow-[0px_-24px_48px_rgba(0,0,0,0.4)]">
+<!-- Map Tab -->
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="map">map</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Map</span>
+</a>
+<!-- Stops Tab (Active) -->
+<a class="flex flex-col items-center justify-center text-[#39FF14] bg-[#39FF14]/10 rounded-full px-5 py-1.5 transition-all scale-110 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined text-2xl mb-0.5" data-icon="departure_board" data-weight="fill" style="font-variation-settings: 'FILL' 1;">departure_board</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Stops</span>
+</a>
+<!-- Status Tab -->
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-zinc-200 transition-all" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="analytics">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest">Status</span>
+</a>
+</nav>
+<!-- Decorative Background Texture -->
+<div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-secondary/5 blur-[120px]"></div>
+</div>
+</body></html>
